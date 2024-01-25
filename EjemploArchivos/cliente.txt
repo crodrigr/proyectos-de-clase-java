@@ -1,3 +1,6 @@
 camilo,rodriguez,crodrigr@gmail.com,cra 29 No 34-34,3144915788
 juan,perez,jperez@gmail.com,cra 33 No 45-55,3145888
 daniel,travieso,danielt@gmail.com,cra 444-22,31878555
+pepito,perez,pperez@gmail,xxxx,3145555
+roberto,fernandez,rfernandez@gmail,xxxx,3145555
+jorge,lamus,jlamus@gmail,xxxx,3145555

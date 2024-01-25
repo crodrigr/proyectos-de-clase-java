@@ -8,8 +8,6 @@ public class Cliente {
     private String direccion;
     private String celular;
 
-    
-
     public Cliente(String nombre, String apellido, String email, String direccion, String celular) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -17,7 +15,7 @@ public class Cliente {
         this.direccion = direccion;
         this.celular = celular;
     }
-    
+
     public String getNombre() {
         return nombre;
     }

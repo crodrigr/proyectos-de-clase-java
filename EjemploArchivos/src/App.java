@@ -24,6 +24,10 @@ public class App {
             System.out.println("Direccion: "+c.getDireccion());
             System.out.println("Celular: "+c.getCelular());
         }
+        clientes.add(new Cliente("pepito","perez","pperez@gmail","xxxx","3145555"));
+        clientes.add(new Cliente("roberto","fernandez","rfernandez@gmail","xxxx","3145555"));
+        clientes.add(new Cliente("jorge","lamus","jlamus@gmail","xxxx","3145555"));
+        escribirArchivoCliente(clientes);
 
     }
 
@@ -88,6 +92,20 @@ public class App {
         }
 
         return clientes;       
+
+    }
+
+    public static void escribirArchivoCliente(List<Cliente> clientes){
+
+        File archivo = new File("cliente.txt");
+
+        try (PrintWriter buffer = new  PrintWriter(new FileWriter(archivo))) {
+             for(Cliente c: clientes){
+                 buffer.println(c.getNombre()+","+c.getApellido()+","+c.getEmail()+","+c.getDireccion()+","+c.getCelular());
+             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
