@@ -1,0 +1,61 @@
+[ {
+  "nombre" : "pepito",
+  "apellido" : "perez",
+  "email" : "pperez@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "roberto",
+  "apellido" : "fernandez",
+  "email" : "rfernandez@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "jorge",
+  "apellido" : "lamus",
+  "email" : "jlamus@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "ramiro",
+  "apellido" : "lamus",
+  "email" : "jlamus@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "jose",
+  "apellido" : "lamus",
+  "email" : "jlamus@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "andres",
+  "apellido" : "lamus",
+  "email" : "jlamus@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "juan",
+  "apellido" : "lamus",
+  "email" : "jlamus@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "carlos",
+  "apellido" : "lamus",
+  "email" : "jlamus@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "dario",
+  "apellido" : "lamus",
+  "email" : "jlamus@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}, {
+  "nombre" : "diego",
+  "apellido" : "lamus",
+  "email" : "jlamus@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+} ]
