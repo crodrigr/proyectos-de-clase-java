@@ -5,13 +5,25 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import models.Cliente;
 
 public class App {
     public static void main(String[] args)  {
     
         //crearArchivoBuffer();
         //crearArchivoPrintWrite();
-        System.out.println(leerArchivoBuffer("cliente.txt"));
+        //System.out.println(leerArchivoBuffer("cliente.txt"));
+        List<Cliente> clientes=leerArchivoCliente("cliente.txt");
+        for(Cliente c: clientes){
+            System.out.println("Nombre: "+c.getNombre());
+            System.out.println("Apellido: "+c.getApellido());
+            System.out.println("Email: "+c.getEmail());
+            System.out.println("Direccion: "+c.getDireccion());
+            System.out.println("Celular: "+c.getCelular());
+        }
 
     }
 
@@ -56,11 +68,26 @@ public class App {
             e.printStackTrace();
         }
 
-        return sb.toString();
-            
+        return sb.toString();       
 
+    }
 
+    public static List<Cliente> leerArchivoCliente(String nombreArchivo){
+        List<Cliente> clientes=new ArrayList<>();
+        StringBuilder sb=new StringBuilder();
+        File file=new File(nombreArchivo);
+        try(BufferedReader reader=new BufferedReader(new FileReader(file))){
+            String linea;
+            while ((linea=reader.readLine())!=null) {
+               String[] registro=linea.split(",");
+               clientes.add(new Cliente(registro[0],registro[1],registro[2],registro[3],registro[4])); 
+            }
 
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+        return clientes;       
 
     }
 }
