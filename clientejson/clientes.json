@@ -58,4 +58,11 @@
   "email" : "jlamus@gmail",
   "direccion" : "xxxx",
   "celular" : "3145555"
-} ]
+} ,
+{
+  "nombre" : "kare",
+  "apellido" : "Ramirez",
+  "email" : "kramirez@gmail",
+  "direccion" : "xxxx",
+  "celular" : "3145555"
+}]

@@ -8,6 +8,10 @@ public class Cliente {
     private String direccion;
     private String celular;
 
+    public Cliente(){
+        
+    }
+
     public Cliente(String nombre, String apellido, String email, String direccion, String celular) {
         this.nombre = nombre;
         this.apellido = apellido;
