@@ -8,7 +8,7 @@ public class ConexionBaseDatos {
 
     private static String url="jdbc:mysql://localhost:3308/dabase_factura";
     private static String username="root";
-    private static String password="admin";
+    private static String password="Ju4nC22/";
     private static Connection conection;
 
     private ConexionBaseDatos(){
