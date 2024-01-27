@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class Producto {
     private int codigo;
     private String nombre;
+    private String descripcion;
     private double precioVenta;
     private double precioCompra;
 
