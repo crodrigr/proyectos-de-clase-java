@@ -78,9 +78,15 @@ public class ProductoRepositoryImpl implements ProductoRepository {
     }
 
     @Override
-    public void eliminar(int id) {
+    public void eliminar(int codigo) {
+        try (PreparedStatement stmt = getConnection().prepareStatement("DELETE FROM producto WHERE codigo=?")) {
+            stmt.setInt(1, codigo);
+            stmt.executeUpdate();
 
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private Producto crearProducto(ResultSet rs) throws SQLException {
