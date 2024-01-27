@@ -1,6 +1,7 @@
 package com.campus.repository;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,13 +24,7 @@ public class ProductoRepositoryImpl implements ProductoRepository {
         try (Statement stmt = getConnection().createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM producto ")) {
             while (rs.next()) {
-                Producto producto = new Producto();
-                producto.setCodigo(rs.getInt("codigo"));
-                producto.setNombre(rs.getString("nombre"));
-                producto.setDescripcion(rs.getString("descripcion"));
-                producto.setPrecioVenta(rs.getDouble("precioVenta"));
-                producto.setPrecioCompra(rs.getDouble("precioCompra"));
-                listProductos.add(producto);
+                listProductos.add(crearProducto(rs));
             }
 
         } catch (SQLException e) {
@@ -41,21 +36,62 @@ public class ProductoRepositoryImpl implements ProductoRepository {
     }
 
     @Override
-    public Producto porCodigo(int id) {
+    public Producto porCodigo(int codigo) {
+        Producto producto = null;
+        try (PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM producto WHERE CODIGO=?")) {
+            stmt.setInt(1, codigo);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    producto = crearProducto(rs);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return producto;
 
-        throw new UnsupportedOperationException("Unimplemented method 'porCodigo'");
     }
 
     @Override
     public void guardar(Producto producto) {
+        String sql;
+        if (producto.getCodigo() > 0) {
+            sql = "UPDATE producto SET nombre=?, precioVenta=?, precioCompra=?, descripcion=? WHERE codigo=?";
+        } else {
+            sql = "INSERT INTO producto(nombre,precioVenta,precioCompra,descripcion) VALUES(?,?,?,?)";
+        }
 
-        throw new UnsupportedOperationException("Unimplemented method 'guardar'");
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setString(1, producto.getNombre());
+            stmt.setDouble(2, producto.getPrecioVenta());
+            stmt.setDouble(3, producto.getPrecioCompra());
+            stmt.setString(4, producto.getDescripcion());
+
+            if (producto.getCodigo() > 0) {
+                stmt.setInt(5, producto.getCodigo());
+            }
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public void eliminar(int id) {
 
         throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+    }
+
+    private Producto crearProducto(ResultSet rs) throws SQLException {
+        Producto producto = new Producto();
+        producto.setCodigo(rs.getInt("codigo"));
+        producto.setNombre(rs.getString("nombre"));
+        producto.setDescripcion(rs.getString("descripcion"));
+        producto.setPrecioVenta(rs.getDouble("precioVenta"));
+        producto.setPrecioCompra(rs.getDouble("precioCompra"));
+        return producto;
+
     }
 
 }
