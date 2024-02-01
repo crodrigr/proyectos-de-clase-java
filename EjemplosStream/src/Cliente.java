@@ -3,12 +3,14 @@ public class Cliente {
     private String nombre;
     private String documento;
     private String genero;
+    private double totalPagar;
 
 
-    public Cliente(String nombre, String documento, String genero) {
+    public Cliente(String nombre, String documento, String genero, double totalPagar) {
         this.nombre = nombre;
         this.documento = documento;
         this.genero = genero;
+        this.totalPagar=totalPagar;
     }
 
 
@@ -40,6 +42,18 @@ public class Cliente {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+
+
+    public double getTotalPagar() {
+        return totalPagar;
+    }
+
+
+    public void setTotalPagar(double totalPagar) {
+        this.totalPagar = totalPagar;
+    }
+
+    
 
     
 

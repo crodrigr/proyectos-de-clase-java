@@ -18,12 +18,12 @@ public class EjemploMap {
 
         System.out.println("---------map--nombres---genero");
         List<Cliente> listCliente = new ArrayList<>();
-        listCliente.add(new Cliente("Carlos", "1001", "M"));
-        listCliente.add(new Cliente("Juan", "1002", "M"));
-        listCliente.add(new Cliente("Pedro", "1002", "M"));
-        listCliente.add(new Cliente("Maria", "1003", "F"));
-        listCliente.add(new Cliente("Daniela", "1004", "F"));
-        listCliente.add(new Cliente("Jose", "1005", "M"));
+        listCliente.add(new Cliente("Carlos", "1001", "M",1200));
+        listCliente.add(new Cliente("Juan", "1002", "M",1500));
+        listCliente.add(new Cliente("Pedro", "1002", "M",7800));
+        listCliente.add(new Cliente("Maria", "1003", "F",1000));
+        listCliente.add(new Cliente("Daniela", "1004", "F",12000));
+        listCliente.add(new Cliente("Jose", "1005", "M",50000));
 
         Stream<Cliente> newListCliente = listCliente.stream()
                 .map(c -> {
